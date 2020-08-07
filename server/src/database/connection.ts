@@ -4,9 +4,9 @@ import path from 'path'
 // migrations - Controle de versão do banco de dados
 
 const db = knex({
-    client: 'squilie3',
+    client: 'sqlite3',
     connection: {
-        filename: path.resolve(__filename, 'database.sqlite')
+        filename: path.resolve(__dirname, 'database.sqlite')
     },
     useNullAsDefault: true,
 });
