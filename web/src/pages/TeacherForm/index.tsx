@@ -52,14 +52,14 @@ function TeacherForm() {
     function handleCreateClass(e: FormEvent) {
 
         e.preventDefault()
-        
+
         api.post('/classes', { 
             name,
             avatar,
             whatsapp,
             bio,
             subject,
-            cost: Number(cost),
+            cost,
             schedule: scheduleItems
             
          }).then( () => {
@@ -68,9 +68,9 @@ function TeacherForm() {
             history.push('/')
          }).catch( () => {
             alert("Erro ao efetuar cadastro!!")
-         })
+        })
 
-        }
+    }
 
     return (
         

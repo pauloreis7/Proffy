@@ -12,6 +12,32 @@
     color: var(--color-text-in-primary);
 }
 
+#search-teachers button {
+    width: 100%;
+    height: 5.6rem;
+
+    background: var(--color-secundary);
+    color: var(--color-button-text);
+    border: 0;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font: 700 2.2rem Archivo;
+    text-decoration: none;
+    outline: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 3.2rem;
+
+    transition: background-color 200ms;
+}
+
+#search-teachers button:hover {
+    background-color: var(--color-secundary-dark);
+}
+
 #page-teachers-list main {
     width: 90%;
 
@@ -26,8 +52,9 @@
 
     #search-teachers {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr) 5.6rem;
         column-gap: 16px;
+        align-items: center;
 
         position: absolute;
         bottom: -28px;
@@ -41,6 +68,15 @@
     #search-teachers .select-block select {
         background-position: right 0.8rem top 50%;
         background-size: .65em auto;
+    }
+
+    #search-teachers button {
+        font: 500 0.01px Archivo;
+
+        background-image: url(../../assets/images/icons/search.svg);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: 50% 50%;
     }
 
     #page-teachers-list main {
