@@ -8,7 +8,7 @@
 }
 
 #page-teachers-form main {
-    width: 100%;
+    width: 96%;
     max-width: 74rem;
 
     background: var(--color-box-base);
@@ -43,4 +43,141 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+#page-teachers-form main fieldset legend button {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font: 700 1.8rem Archivo;
+    cursor: pointer;
+    outline: 0;
+
+    transition: color 200ms;
+}
+
+#page-teachers-form main fieldset legend button:hover {
+    color: var(--color-primary-dark);
+}
+
+#page-teachers-form main fieldset .input-block + .textarea-block,
+#page-teachers-form main fieldset .select-block + .input-block {
+    margin-top: 2.4rem;
+}
+
+#page-teachers-form main fieldset .schedule-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "day day"
+                         ". .";
+    gap: 1.6rem;
+}
+
+#page-teachers-form main fieldset .schedule-item .input-block {
+    margin-top: 0 !important;
+}
+
+#page-teachers-form main fieldset .schedule-item + .schedule-item {
+    margin-top: 1.6rem;
+}
+
+#page-teachers-form main fieldset .schedule-item .select-block {
+    grid-area: day;
+}
+
+#page-teachers-form main label {
+    color: var(--color-text-complement);
+}
+
+#page-teachers-form main footer {
+    padding: 4rem 2.4rem;
+    margin-top: 6.4rem;
+
+    background: var(--color-box-footer);
+    border-top: 1px solid var(--color-line-in-white); 
+}
+
+#page-teachers-form main footer p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+
+    color: var(--color-text-complement);
+}
+
+#page-teachers-form main footer p img {
+    margin-right: 1.6rem;
+}
+
+#page-teachers-form main footer button {
+    width: 100%;
+    height: 5.6rem;
+
+    background: var(--color-secundary);
+    color: var(--color-button-text);
+    border: 0;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    font: 700 2rem Archivo;
+    text-decoration: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 3.2rem;
+
+    transition: background-color 200ms;
+}
+
+#page-teachers-form main footer button:hover {
+    background: var(--color-secundary-dark);
+}
+
+@media(min-width: 700px) {
+    #page-teachers-form .page-header .header-content strong {
+        max-width: 450px;
+    }
+
+    #page-teachers-form {
+        max-width: 100vw;
+    }
+
+    #page-teachers-form main {
+        max-width: 84rem;
+    }
+
+    #page-teachers-form main fieldset {
+        padding: 0 6.4rem;
+    }
+
+    #page-teachers-form main fieldset .schedule-item {
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "day . .";
+    }
+
+    #page-teachers-form main footer {
+        padding: 4.0rem 6.4rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #page-teachers-form main footer p {
+        justify-content: space-between;
+    }
+
+    #page-teachers-form main footer button {
+        width: 22rem;
+
+        font-size: 1.8rem;
+        
+        margin-top: 0;
+    }
 }
