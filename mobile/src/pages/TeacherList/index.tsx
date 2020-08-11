@@ -14,7 +14,7 @@ import styles from './styles'
 function TeacherList() {
     const [ teachers, setTeachers ] = useState([])
 
-    const [ favorites, setFavorites ] = useState([])
+    const [ favorites, setFavorites ] = useState<number[]>([])
 
     const [ subject, setSubject ] = useState('')
     const [ week_day, setWeekDay ] = useState('')
@@ -22,15 +22,25 @@ function TeacherList() {
 
     const [isFilterVisible, setIsFilterVisible] = useState(false)
 
-    useEffect(() => {
-
-    }, [])
+    function loadFavorites() {
+        AsyncStorage.getItem('favorites').then( response => {
+            if (response) {
+                
+                const favoritedTeachers = JSON.parse(response)
+                const favoritedTeachersIds = favoritedTeachers.map( 
+                    (teacher: Teacher) => teacher.id 
+                )
+                setFavorites(favoritedTeachersIds)
+            }
+        });
+    }
 
     function handleToggleFilterVisible() {
         setIsFilterVisible(!isFilterVisible)
     }
 
     async function handleFilterSubmit() {
+        loadFavorites();
 
         const response = await api.get("classes", {
             params: {
@@ -131,7 +141,15 @@ function TeacherList() {
                 contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 16 }}
             >
         
-                { teachers.map( (teacher: Teacher) => <TeacherItem key={ teacher.id } teacher={ teacher } /> )}
+                { teachers.map( (teacher: Teacher) => (
+
+                    <TeacherItem 
+                        key={ teacher.id }
+                        teacher={ teacher }
+                        favorited={ favorites.includes(teacher.id) }
+                    />
+                
+                ))}
 
             </ScrollView>
 
